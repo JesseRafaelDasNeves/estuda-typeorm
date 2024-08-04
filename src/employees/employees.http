@@ -1,0 +1,46 @@
+### get employee
+GET http://localhost:3000/employees/3
+
+### Create employee
+POST http://localhost:3000/employees
+Content-Type: application/json
+
+{
+    "name": "Mr. Employee",
+    "managerId": 2,
+    "contactInfo": {
+        "email": "employee@teste.com",
+        "phone": "+5541997456711"
+    }
+}
+
+### update employee
+PATCH http://localhost:3000/employees/3
+Content-Type: application/json
+
+{
+    "name" : "Changed Employee",
+    "managerId": 1,
+    "contactInfo": {
+        "email": "changed-employee@teste.com",
+        "phone": "+5541997456722"
+    }
+}
+
+### update manager
+PATCH http://localhost:3000/employees/3/assign-manager
+Content-Type: application/json
+
+{
+    "managerId": 2
+}
+
+### paymento webhook
+POST http://localhost:3000/employees/webhooks/payment
+Content-Type: application/json
+
+{
+    "id": "12031635165651551",
+    "status": "paid",
+    "amount": 150
+}
